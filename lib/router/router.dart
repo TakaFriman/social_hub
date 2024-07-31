@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:social_hub/screens/home_screen/view/view.dart';
-import 'package:social_hub/screens/profile_screen/view/view.dart';
+import 'package:social_hub/screens/home/view/view.dart';
+import 'package:social_hub/screens/profile/view/view.dart';
 
-import '../screens/feed_screen/view/view.dart';
+import '../screens/feed/view/view.dart';
 
 part 'router.gr.dart';
 
