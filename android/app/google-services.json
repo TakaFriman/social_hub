@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "1024196885187",
+    "project_id": "social-hub-31829",
+    "storage_bucket": "social-hub-31829.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1024196885187:android:dab4b565ceb334819ec076",
+        "android_client_info": {
+          "package_name": "com.exam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1024196885187-bbpts1l81escrcdsq44vpmqpr30pkncm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTDzawa02eEK1QCYtLwntei9v5OYb-b0o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1024196885187-bbpts1l81escrcdsq44vpmqpr30pkncm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1024196885187-6c0vt7m4e34d1euj4noqnem4vgenuih0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.socialHub"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1024196885187:android:16960bc2aed7f83d9ec076",
+        "android_client_info": {
+          "package_name": "com.example.social_hub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1024196885187-bbpts1l81escrcdsq44vpmqpr30pkncm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTDzawa02eEK1QCYtLwntei9v5OYb-b0o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1024196885187-bbpts1l81escrcdsq44vpmqpr30pkncm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1024196885187-6c0vt7m4e34d1euj4noqnem4vgenuih0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.socialHub"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

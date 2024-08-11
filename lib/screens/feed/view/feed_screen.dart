@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:social_hub/app/bloc/app_bloc.dart';
 import 'package:social_hub/screens/feed/components/components.dart';
-
-
 
 @RoutePage()
 class FeedScreen extends StatelessWidget {
@@ -14,6 +14,15 @@ class FeedScreen extends StatelessWidget {
     return CustomScrollView(
       slivers: [
         SliverAppBar(
+          actions: [
+            IconButton(
+              key: const Key('logout_iconButton'),
+              icon: const Icon(Icons.exit_to_app),
+              onPressed: () {
+                context.read<AppBloc>().add(const AppLogoutRequested());
+              },
+            ),
+          ],
           title: Text(
             'Лента',
             style: theme.textTheme.titleLarge,
@@ -29,4 +38,3 @@ class FeedScreen extends StatelessWidget {
     );
   }
 }
-
