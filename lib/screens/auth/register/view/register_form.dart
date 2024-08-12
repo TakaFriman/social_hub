@@ -1,6 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
+import 'package:social_hub/router/router.dart';
+import 'package:social_hub/screens/auth/register/components/components.dart';
 import 'package:social_hub/screens/auth/register/cubit/register_cubit.dart';
 
 class RegisterForm extends StatelessWidget {
@@ -16,112 +19,50 @@ class RegisterForm extends StatelessWidget {
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
             ..showSnackBar(
-              SnackBar(content: Text(state.errorMessage ?? 'Sign Up Failure')),
+              SnackBar(content: Text(state.errorMessage ?? 'Регистрация не удалась')),
             );
         }
       },
-      child: Align(
-        alignment: const Alignment(0, -1 / 3),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            _EmailInput(),
-            const SizedBox(height: 8),
-            _PasswordInput(),
-            const SizedBox(height: 8),
-            _ConfirmPasswordInput(),
-            const SizedBox(height: 8),
-            _SignUpButton(),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _EmailInput extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<RegisterCubit, RegisterState>(
-      buildWhen: (previous, current) => previous.email != current.email,
-      builder: (context, state) {
-        return TextField(
-          key: const Key('signUpForm_emailInput_textField'),
-          onChanged: (email) => context.read<RegisterCubit>().emailChanged(email),
-          keyboardType: TextInputType.emailAddress,
-          decoration: InputDecoration(
-            labelText: 'email',
-            helperText: '',
-            errorText: state.email.displayError != null ? 'invalid email' : null,
-          ),
-        );
-      },
-    );
-  }
-}
-
-class _PasswordInput extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<RegisterCubit, RegisterState>(
-      buildWhen: (previous, current) => previous.password != current.password,
-      builder: (context, state) {
-        return TextField(
-          key: const Key('signUpForm_passwordInput_textField'),
-          onChanged: (password) => context.read<RegisterCubit>().passwordChanged(password),
-          obscureText: true,
-          decoration: InputDecoration(
-            labelText: 'password',
-            helperText: '',
-            errorText: state.password.displayError != null ? 'invalid password' : null,
-          ),
-        );
-      },
-    );
-  }
-}
-
-class _ConfirmPasswordInput extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<RegisterCubit, RegisterState>(
-      buildWhen: (previous, current) =>
-          previous.password != current.password || previous.confirmedPassword != current.confirmedPassword,
-      builder: (context, state) {
-        return TextField(
-          key: const Key('signUpForm_confirmedPasswordInput_textField'),
-          onChanged: (confirmPassword) => context.read<RegisterCubit>().confirmedPasswordChanged(confirmPassword),
-          obscureText: true,
-          decoration: InputDecoration(
-            labelText: 'confirm password',
-            helperText: '',
-            errorText: state.confirmedPassword.displayError != null ? 'passwords do not match' : null,
-          ),
-        );
-      },
-    );
-  }
-}
-
-class _SignUpButton extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<RegisterCubit, RegisterState>(
-      builder: (context, state) {
-        return state.status.isInProgress
-            ? const CircularProgressIndicator()
-            : ElevatedButton(
-                key: const Key('signUpForm_continue_raisedButton'),
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
+      child: Stack(
+        children: [
+          SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 16),
+              child: Column(
+                children: [
+                  Expanded(
+                    child: SingleChildScrollView(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Column(
+                            children: [
+                              Image.asset(
+                                'assets/images/logo.png',
+                                height: MediaQuery.of(context).size.height * 0.2,
+                                color: Colors.black,
+                              ),
+                              const SizedBox(height: 32),
+                              const EmailInput(),
+                              const SizedBox(height: 12),
+                              const PasswordInput(),
+                              const SizedBox(height: 12),
+                              const ConfirmPasswordInput(),
+                              const SizedBox(height: 24),
+                              const SignUpButton(),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
-                  backgroundColor: Colors.orangeAccent,
-                ),
-                onPressed: state.isValid ? () => context.read<RegisterCubit>().signUpFormSubmitted() : null,
-                child: const Text('SIGN UP'),
-              );
-      },
+                  const LoginButton(),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

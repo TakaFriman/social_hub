@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class AppTheme {
   //светлая тема
@@ -11,6 +10,8 @@ class AppTheme {
       selectedLabelStyle: const TextStyle(fontWeight: FontWeight.w500),
     ),
     appBarTheme: const AppBarTheme(
+      elevation: 0,
+      surfaceTintColor: Colors.transparent,
       centerTitle: true,
       backgroundColor: Colors.white,
     ),
