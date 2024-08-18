@@ -25,7 +25,7 @@ class LoginButton extends StatelessWidget {
                 ),
                 onPressed: state.isValid ? () => context.read<LoginCubit>().logInWithCredentials() : null,
                 child: const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 8),
+                  padding: EdgeInsets.symmetric(vertical: 10),
                   child: Center(
                       child: Text('Войти',
                           style: TextStyle(

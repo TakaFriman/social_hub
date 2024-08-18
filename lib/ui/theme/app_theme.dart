@@ -6,7 +6,7 @@ class AppTheme {
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: Colors.white,
       unselectedItemColor: Colors.grey.withOpacity(0.8),
-      selectedItemColor: Colors.red,
+      selectedItemColor: Colors.purple,
       selectedLabelStyle: const TextStyle(fontWeight: FontWeight.w500),
     ),
     appBarTheme: const AppBarTheme(

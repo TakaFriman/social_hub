@@ -27,7 +27,7 @@ class RegisterForm extends StatelessWidget {
         children: [
           SafeArea(
             child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 16),
+              padding: const EdgeInsets.symmetric(horizontal: 16).copyWith(bottom: 32),
               child: Column(
                 children: [
                   Expanded(
@@ -37,6 +37,7 @@ class RegisterForm extends StatelessWidget {
                         children: [
                           Column(
                             children: [
+                              SizedBox(height: MediaQuery.of(context).size.height * 0.15),
                               Image.asset(
                                 'assets/images/logo.png',
                                 height: MediaQuery.of(context).size.height * 0.2,
@@ -50,13 +51,13 @@ class RegisterForm extends StatelessWidget {
                               const ConfirmPasswordInput(),
                               const SizedBox(height: 24),
                               const SignUpButton(),
+                              const LoginRow(),
                             ],
                           ),
                         ],
                       ),
                     ),
                   ),
-                  const LoginButton(),
                 ],
               ),
             ),

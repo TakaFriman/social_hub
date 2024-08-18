@@ -22,7 +22,7 @@ class SignUpButton extends StatelessWidget {
                 ),
                 onPressed: state.isValid ? () => context.read<RegisterCubit>().signUpFormSubmitted() : null,
                 child: const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 8),
+                  padding: EdgeInsets.symmetric(vertical: 10),
                   child: Center(
                       child: Text('Зарегистрироваться',
                           style: TextStyle(

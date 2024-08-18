@@ -1,7 +1,11 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_hub/app/bloc/app_bloc.dart';
+import 'package:social_hub/screens/profile/components/components.dart';
+import 'package:social_hub/ui/ui.dart';
 
 @RoutePage()
 class ProfileScreen extends StatelessWidget {
@@ -28,15 +32,32 @@ class ProfileScreen extends StatelessWidget {
             style: theme.textTheme.titleLarge,
           ),
         ),
-        SliverToBoxAdapter(
-          child: Center(
-            heightFactor: 25,
-            child: Text(
-              user.email ?? '',
-              style: theme.textTheme.titleLarge,
+        const SliverToBoxAdapter(child: SizedBox(height: 32)),
+        const SliverToBoxAdapter(
+            child: Column(
+          children: [
+            CircleAvatar(
+              backgroundColor: Colors.black,
+              radius: 50,
             ),
+            Text('name'),
+            Text('nickname')
+          ],
+        )),
+        const SliverToBoxAdapter(child: SizedBox(height: 32)),
+        SliverToBoxAdapter(
+          child: SettingsActionCard(
+            title: 'Мой профиль',
+            suffixIcon: Icons.arrow_forward_ios,
+            onTap: () {},
+            leadingIcon: Icons.person,
+            iconColor: Colors.red,
           ),
         ),
+        const SliverToBoxAdapter(child: SizedBox(height: 12)),
+        const SliverToBoxAdapter(child: ContainerSettingsCommon()),
+        const SliverToBoxAdapter(child: SizedBox(height: 12)),
+        const SliverToBoxAdapter(child: ContainerSettingsCommon()),
       ],
     );
   }
