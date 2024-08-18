@@ -10,17 +10,12 @@ import 'package:social_hub/screens/auth/register/register.dart';
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Регистрация')),
-      body: Padding(
-        padding: const EdgeInsets.all(8),
-        child: BlocProvider<RegisterCubit>(
-          create: (_) => RegisterCubit(context.read<AuthenticationRepository>()),
-          child: const RegisterForm(),
-        ),
+      body: BlocProvider<RegisterCubit>(
+        create: (_) => RegisterCubit(context.read<AuthenticationRepository>()),
+        child: const RegisterForm(),
       ),
     );
   }
